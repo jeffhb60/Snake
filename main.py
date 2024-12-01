@@ -1,11 +1,14 @@
 import time
 from snake import Snake
+from food import Food
 from turtle import Screen, Turtle
 
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 BG_COLOR = "black"
 TITLE = "Project Scaling Invention: Snake Game"
+COLLISION_TOLERANCE = 15
+
 
 # Set up the screen
 screen = Screen()
@@ -15,6 +18,7 @@ screen.title(TITLE)
 screen.tracer(0)
 
 snake = Snake()
+food = Food()
 
 screen.listen()
 screen.onkey(snake.move_up, "Up")
@@ -27,6 +31,10 @@ while active_game:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
+    if snake.head.distance(food) < COLLISION_TOLERANCE:
+        food.refresh()
+        print("nom nom nom")
 
 # Wait for user to click before exiting
 screen.exitonclick()
