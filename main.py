@@ -37,7 +37,13 @@ while active_game:
     if snake.head.distance(food) < COLLISION_TOLERANCE:
         food.refresh()
         scoreboard.increase_score()
-        print("nom nom nom")
 
+    if (snake.head.xcor() > 280 or
+            snake.head.xcor() < -280 or
+            snake.head.ycor() > 280 or
+             snake.head.ycor() < -280):
+        active_game = False
+
+scoreboard.game_over()
 # Wait for user to click before exiting
 screen.exitonclick()
