@@ -17,11 +17,7 @@ class Snake:
 
     def create_snake(self):
         for snake_position in START_POS:
-            new_body_segment = Turtle(shape=BODY_SHAPE)
-            new_body_segment.color(BODY_COLOR)
-            new_body_segment.penup()
-            new_body_segment.goto(snake_position)
-            self.body_segments.append(new_body_segment)
+            self.add_body_segment(snake_position)
 
     def move(self):
         for body_segment_number in range(len(self.body_segments) - 1, 0, -1):
@@ -29,6 +25,16 @@ class Snake:
             new_y_coord = self.body_segments[body_segment_number - 1].ycor()
             self.body_segments[body_segment_number].goto(new_x_coord, new_y_coord)
         self.body_segments[0].forward(MOVE_DIST)
+
+    def add_body_segment(self, position):
+        new_body_segment = Turtle(shape=BODY_SHAPE)
+        new_body_segment.color(BODY_COLOR)
+        new_body_segment.penup()
+        new_body_segment.goto(position)
+        self.body_segments.append(new_body_segment)
+
+    def grow(self):
+        self.add_body_segment(self.body_segments[-1].position())
 
     def move_up(self):
         if self.head.heading() != DOWN_DIR:

@@ -9,6 +9,7 @@ SCREEN_HEIGHT = 600
 BG_COLOR = "black"
 TITLE = "Project Scaling Invention: Snake Game"
 COLLISION_TOLERANCE = 15
+TAIL_COLLISION_TOLERANCE = 10
 
 
 # Set up the screen
@@ -36,6 +37,7 @@ while active_game:
 
     if snake.head.distance(food) < COLLISION_TOLERANCE:
         food.refresh()
+        snake.grow()
         scoreboard.increase_score()
 
     if (snake.head.xcor() > 280 or
@@ -43,6 +45,13 @@ while active_game:
             snake.head.ycor() > 280 or
              snake.head.ycor() < -280):
         active_game = False
+
+    for segment in snake.body_segments:
+
+        if (snake.head.distance(segment) < TAIL_COLLISION_TOLERANCE and
+                segment != snake.head):
+            active_game = False
+            scoreboard.game_over()
 
 scoreboard.game_over()
 # Wait for user to click before exiting
