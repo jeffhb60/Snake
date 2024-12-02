@@ -1,13 +1,5 @@
 from turtle import Turtle
-START_POS = [(0,0), (-20,0), (-40, 0)]
-BODY_SHAPE = "square"
-BODY_COLOR = "white"
-MOVE_DIST = 20
-
-UP_DIR = 90
-DOWN_DIR = 270
-LEFT_DIR = 180
-RIGHT_DIR = 0
+from constants import *
 
 class Snake:
     def __init__(self):

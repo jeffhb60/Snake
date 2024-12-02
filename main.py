@@ -3,13 +3,7 @@ from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
 from turtle import Screen, Turtle
-
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 600
-BG_COLOR = "black"
-TITLE = "Project Scaling Invention: Snake Game"
-COLLISION_TOLERANCE = 15
-TAIL_COLLISION_TOLERANCE = 10
+from constants import *
 
 
 # Set up the screen

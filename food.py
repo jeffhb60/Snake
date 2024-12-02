@@ -1,13 +1,7 @@
 from turtle import Turtle
 import random
+from constants import *
 
-FOOD_SHAPE = "circle"
-FOOD_COLOR = "red"
-SPEED = "fastest"
-SHAPESIZE_LEN = 1
-SHAPESIZE_WID = 1
-RAND_MIN = -280
-RAND_MAX = 280
 
 class Food(Turtle):
     def __init__(self):

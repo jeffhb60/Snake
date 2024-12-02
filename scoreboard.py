@@ -1,13 +1,5 @@
 from turtle import Turtle
-FONT_COLOR = "white"
-FONT_TYPE= "Courier New"
-FONT_SIZE = 24
-FONT_WEIGHT = "bold"
-ALIGNMENT="center"
-POS_X = 0
-POS_Y = 260
-GAME_OVER_X=0
-GAME_OVER_Y=0
+from constants import *
 
 class Scoreboard(Turtle):
     def __init__(self):
